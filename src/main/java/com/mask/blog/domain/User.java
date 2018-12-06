@@ -1,12 +1,21 @@
 package com.mask.blog.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+
+
+@Entity
 public class User {
 	
+	@Id
+	@GeneratedValue
 	private Long id;
 	private String name;
 	private String email;
 	
-	public User() {
+	protected User() {
 		
 	}
 	
@@ -35,5 +44,7 @@ public class User {
 		this.email = email;
 	}
 	
-	
+	public String toString() {
+		return String.format("User[id=%d,name='%s',email='%s'", id,name,email);
+	}
 }
