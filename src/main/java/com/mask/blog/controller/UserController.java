@@ -93,5 +93,10 @@ public class UserController {
 		model.addAttribute("title", "修改用户");
 		return new ModelAndView("users/form", "userModel", model);
 	}
+	
+	@GetMapping(value = "test")
+	public String test() {
+		return "test";
+	}
 
 }
