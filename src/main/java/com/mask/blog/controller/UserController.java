@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.View;
 
 import com.mask.blog.domain.User;
 import com.mask.blog.repository.UserRepository;
@@ -95,8 +96,8 @@ public class UserController {
 	}
 	
 	@GetMapping(value = "test")
-	public String test() {
-		return "test";
+	public ModelAndView test(Model model) {
+		return new ModelAndView("test", "model", model);
 	}
 
 }

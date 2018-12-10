@@ -3,16 +3,64 @@
 <head>
 <meta charset="UTF-8" />
 <title>Thymeleaf in action</title>
-<!-- Bootstrap core CSS -->
-<script src="@{jquery.min.js}"></script>
-<link th:href="@{bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
-<link href="@{bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
-<script src="@{bootstrap/js/bootstrap.min.js}"></script>
+<meta content="text/html;charset=UTF-8" />
+<link th:href="@{../bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+<link th:href="@{../bootstrap/css/bootstrap-theme.min.css}"
+	rel="stylesheet" />
+<script th:src="@{../jquery.min.js}" type="text/javascript"></script>
+<script th:src="@{../bootstrap/js/bootstrap.js}" type="text/javascript"></script>
 </head>
 <body>
-	<footer class="blog-footer" data-th-fragment="footer">
-	<button class="btn btn-default" type="submit">Button</button>
-		<a href="https://www.bilibili.com">Welcome to bilibili.com</a>
+	<footer class="footer " data-th-fragments="footer">
+	<hr/>
+		<div class="container">
+			<div class="row footer-top">
+				<div class="col-md-6 col-lg-6">
+					<h4>
+						<img src="../../images/knife.png">
+					</h4>
+					<h3>Look Before You Leap！</h3>
+				</div>
+				<div class="col-md-6  col-lg-5 col-lg-offset-1">
+					<div class="row about">
+						<div class="col-sm-3">
+							<h4>关于</h4>
+							<ul class="list-unstyled">
+								<li><a href="#">关于我们</a></li>
+								<li><a href="#">广告合作</a></li>
+								<li><a href="#">友情链接</a></li>
+							</ul>
+						</div>
+						<div class="col-sm-3">
+							<h4>联系方式</h4>
+							<ul class="list-unstyled">
+								<li><a href="http://weibo.com/1005055287167729"
+									title="我的微博" target="_blank">新浪微博</a></li>
+								<li><a href="mailto:wxwmask@qq.com">电子邮件</a></li>
+							</ul>
+						</div>
+						<div class="col-sm-4">
+							<h4>推荐网站</h4>
+							<ul class="list-unstyled">
+								<li><a href="#" target="_blank">Laravel中文网</a></li>
+								<li><a href="#" target="_blank">Ghost中国</a></li>
+								<li><a href="#" target="_blank">BootCDN</a></li>
+								<li><a href="#" target="_blank">Packagist中国镜像</a></li>
+								<li><a href="#" target="_blank">燃腾教育</a></li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<hr>
+			<div class="row footer-bottom">
+				<ul class="list-inline text-center">
+					<li><a href="#" target="_blank">京ICP备XXXXXXXXX号</a></li>
+					<li>京公网安备XXXXXXXXXX</li>
+				</ul>
+			</div>
+		</div>
 	</footer>
 </body>
 </html>
