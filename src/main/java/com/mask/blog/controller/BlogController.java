@@ -1,4 +1,4 @@
-package com.mask.blog.controller;
+/*package com.mask.blog.controller;
 
 import java.util.List;
 
@@ -15,11 +15,11 @@ import com.mask.blog.domain.es.EsBlog;
 import com.mask.blog.repository.es.EsBlogRepository;
 
 
-/**
+*//**
  * Blog控制器
  * @author Mask
  *
- */
+ *//*
 
 @RestController
 @RequestMapping("/blogs")
@@ -39,3 +39,4 @@ public class BlogController {
 		return page.getContent();
 	}
 }
+*/

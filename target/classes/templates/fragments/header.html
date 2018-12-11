@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" data-th-fragment="header">
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	data-th-fragment="header">
 <head>
 <meta charset="UTF-8" />
 <title>Thymeleaf in action</title>
 <meta content="text/html;charset=UTF-8" />
 <link th:href="@{../bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
-<link th:href="@{../bootstrap/css/bootstrap-theme.min.css}"	rel="stylesheet" />
+<link th:href="@{../bootstrap/css/bootstrap-theme.min.css}"
+	rel="stylesheet" />
 </head>
 <body>
 	<nav class="navbar navbar-default" data-th-fragment="header">
@@ -21,8 +23,9 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">
-					<img style="width:24px; height:24px" alt="mask" src="../../images/mask.png">
+				<a class="navbar-brand" href="#"> <img
+					style="width: 24px; height: 24px" alt="mask"
+					src="../../images/mask.png">
 				</a>
 			</div>
 
@@ -40,10 +43,28 @@
 					</div>
 					<button type="submit" class="btn btn-default">搜索</button>
 				</form>
-				<div class="navbar-form navbar-right">
-					<button class="btn btn-default">登录</button>
-					<button class="btn btn-default">注册</button>				
+				<div class="navbar-form navbar-right" sec:authorize="isAnonymous()">
+					<a class="btn btn-default" href="/login">登录</a> <a
+						class="btn btn-default" href="/register">注册</a>
 				</div>
+
+				
+				<ul class="nav navbar-nav navbar-right"
+					sec:authorize="isAuthenticated()">
+					<li><a href="#">写博客</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false" sec:authentication="name">用户中心<span
+							class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">个人主页</a></li>
+							<li><a href="#">个人设置</a></li>
+            <li role="separator" class="divider"></li>
+            <li><form action="/logout" th:action="@{/logout}" method="post">
+					<input class="btn btn-outline-success " type="submit" value="退出">
+				</form></li>
+						</ul></li>
+				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>

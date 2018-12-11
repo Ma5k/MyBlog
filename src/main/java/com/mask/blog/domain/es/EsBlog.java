@@ -1,14 +1,14 @@
-package com.mask.blog.domain.es;
+/*package com.mask.blog.domain.es;
 
 import java.io.Serializable;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
-/**
+*//**
  * 	文档类型
  * @author Mask
  *
- */
+ *//*
 @Document(indexName = "blog", type = "blog")
 public class EsBlog implements Serializable{
 	
@@ -60,3 +60,4 @@ public class EsBlog implements Serializable{
 		return String.format("EsBlog[id='%s', title='%s', summary='%s', content='%s']", id, title, summary, content);
 	}
 }
+*/
