@@ -14,10 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/u")
 public class UserspaceController {
+	 
 	@GetMapping("/{username}")
 	public String userSpace(@PathVariable("username") String username) {
 		System.out.println("username" + username);
-		return "/userspace/u";
+		return "u";
 	}
  
 	@GetMapping("/{username}/blogs")
@@ -30,18 +31,18 @@ public class UserspaceController {
 			
 			System.out.print("category:" +category );
 			System.out.print("selflink:" + "redirect:/u/"+ username +"/blogs?category="+category);
-			return "/userspace/u";
+			return "/u";
 			
 		} else if (keyword != null && keyword.isEmpty() == false) {
 			
 			System.out.print("keyword:" +keyword );
 			System.out.print("selflink:" + "redirect:/u/"+ username +"/blogs?keyword="+keyword);
-			return "/userspace/u";
+			return "/u";
 		}  
 		
 		System.out.print("order:" +order);
 		System.out.print("selflink:" + "redirect:/u/"+ username +"/blogs?order="+order);
-		return "/userspace/u";
+		return "/u";
 	}
 	
 	@GetMapping("/{username}/blogs/{id}")

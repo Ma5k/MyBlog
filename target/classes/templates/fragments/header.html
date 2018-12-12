@@ -1,74 +1,69 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
-	data-th-fragment="header">
+<html lang="en" data-th-fragment="header">
 <head>
-<meta charset="UTF-8" />
-<title>Thymeleaf in action</title>
-<meta content="text/html;charset=UTF-8" />
-<link th:href="@{../bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
-<link th:href="@{../bootstrap/css/bootstrap-theme.min.css}"
-	rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Tether core CSS -->
+    <link href="../../css/tether.min.css" th:href="@{/css/tether.min.css}" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+<!--     <link href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"> -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+        crossorigin="anonymous">
+    <!-- Font-Awesome CSS -->
+    <link href="../../css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
+    
+    <!-- NProgress CSS -->
+    <link href="../../css/nprogress.css" th:href="@{/css/nprogress.css}" rel="stylesheet">
+    
+    <!-- thinker-md CSS -->
+    <link href="../../css/thinker-md.vendor.css" th:href="@{/css/thinker-md.vendor.css}" rel="stylesheet">
+    
+    <!-- bootstrap tags CSS -->
+    <link href="../../css/component-tageditor.min.css" th:href="@{/css/component-tageditor.min.css}" rel="stylesheet">
+    
+    <!-- bootstrap chosen CSS -->
+    <link href="../../css/component-chosen.min.css" th:href="@{/css/component-chosen.min.css}" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="../../css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
+    <link href="../../css/thymeleaf-bootstrap-paginator.css" th:href="@{/css/thymeleaf-bootstrap-paginator.css}"
+          rel="stylesheet">
+    <link href="../../css/blog.css" th:href="@{/css/blog.css}" rel="stylesheet">
 </head>
 <body>
-	<nav class="navbar navbar-default" data-th-fragment="header">
-		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-					aria-expanded="false">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#"> <img
-					style="width: 24px; height: 24px" alt="mask"
-					src="../../images/mask.png">
-				</a>
-			</div>
+<nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
+    <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarsContainer" aria-controls="navbarsExampleContainer" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/" th:href="@{/}">NewStarBlog</a>
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="#">Blog</a></li>
-					<li class="active"><a href="#">最新 <span class="sr-only">(current)</span></a></li>
-					<li><a href="#">最热</a></li>
-				</ul>
-				<form class="navbar-form navbar-left">
-					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Search">
-					</div>
-					<button type="submit" class="btn btn-default">搜索</button>
-				</form>
-				<div class="navbar-form navbar-right" sec:authorize="isAnonymous()">
-					<a class="btn btn-default" href="/login">登录</a> <a
-						class="btn btn-default" href="/register">注册</a>
-				</div>
+        <div class="collapse navbar-collapse" id="navbarsContainer">
 
-				
-				<ul class="nav navbar-nav navbar-right"
-					sec:authorize="isAuthenticated()">
-					<li><a href="#">写博客</a></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false" sec:authentication="name">用户中心<span
-							class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">个人主页</a></li>
-							<li><a href="#">个人设置</a></li>
-            <li role="separator" class="divider"></li>
-            <li><form action="/logout" th:action="@{/logout}" method="post">
-					<input class="btn btn-outline-success " type="submit" value="退出">
-				</form></li>
-						</ul></li>
-				</ul>
-			</div>
-			<!-- /.navbar-collapse -->
-		</div>
-		<!-- /.container-fluid -->
-	</nav>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/blogs?order=new&tag=1">最新 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/blogs?order=hot&tag=2">最热</a>
+                </li>
+                <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="搜索">
+                    <a href="/search?q=ww" class="btn btn-outline-secondary my-2 my-sm-0"><i class="fa fa-search"
+                                                                                                                                        aria-hidden="true"></i></a>
+                </form>
+
+            </ul>
+
+            <a href="/login" class="btn btn-outline-success my-2 my-sm-0" type="submit">登录</a>
+            <a href="/register" class="btn btn-outline-success my-2 my-sm-0" type="submit">注册</a>
+        </div>
+
+    </div>
+</nav>
 </body>
 </html>

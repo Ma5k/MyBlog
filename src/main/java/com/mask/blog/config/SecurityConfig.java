@@ -19,7 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	 */
 	protected void configure(HttpSecurity http) throws Exception{
 		http.authorizeRequests()
-		.antMatchers("/bootstrap/**","/images/**").permitAll()	//都可以访问
+		.antMatchers("/css/**","/images/**","/js/**").permitAll()	//都可以访问
 		.antMatchers("/users/**").hasRole("ADMIN")	//需要相应角色才能访问
 		.and()
 		.formLogin()	//基于Form表单登录验证
