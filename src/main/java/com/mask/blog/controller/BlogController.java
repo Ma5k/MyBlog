@@ -1,6 +1,8 @@
-/*package com.mask.blog.controller;
+package com.mask.blog.controller;
 
 import java.util.List;
+
+import javax.persistence.criteria.Order;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,21 +13,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mask.blog.domain.es.EsBlog;
-import com.mask.blog.repository.es.EsBlogRepository;
 
-
-*//**
+/**
  * Blog控制器
  * @author Mask
  *
- *//*
+ */
 
 @RestController
 @RequestMapping("/blogs")
 public class BlogController {
 	
-	@Autowired
+	/*@Autowired
 	private EsBlogRepository esBlogRepository;
 	
 	@GetMapping
@@ -37,6 +36,12 @@ public class BlogController {
 		Pageable pageable = new PageRequest(pageIndex, pageSize);
 		Page<EsBlog> page = esBlogRepository.findDistinctEsBlogByTitleContainingOrSummaryContainingOrContentContaining(title, summary, content, pageable);
 		return page.getContent();
+	}*/
+	
+	@GetMapping
+	public String listBlogs(@RequestParam(value="keyword", required=false, defaultValue="new") String keyword,
+			@RequestParam(value="tag", required=false) Long tag) {
+		System.out.println("keyword:" + keyword + ";tag:" + tag);
+		return "redirect:/index?keyword=" + keyword + "&tag=" + tag;
 	}
 }
-*/
