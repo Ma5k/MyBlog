@@ -1,9 +1,4 @@
-/*!
-  * Bolg main JS.
- * 
- * @since: 1.0.0 2017/3/9
- * @author Way Lau <https://waylau.com>
- */
+//使用严格模式启动
 "use strict";
 //# sourceURL=main.js
  
