@@ -5,6 +5,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
 import com.mask.blog.domain.User;
@@ -16,7 +18,7 @@ import com.mask.blog.repository.UserRepository;
  *
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService, UserDetailsService {
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -50,5 +52,10 @@ public class UserServiceImpl implements UserService {
 		Page<User> users = userRepository.findByNameLike(name, pageable);
 		return users;
 	}
-
+	
+	@Override
+	public UserDetails loadUserByUsername(String username) {
+		return userRepository.findByUsername(username);
+	}
+	
 }

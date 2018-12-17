@@ -23,8 +23,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mask.blog.domain.Authority;
 import com.mask.blog.domain.User;
 import com.mask.blog.repository.UserRepository;
+import com.mask.blog.service.AuthorityService;
 import com.mask.blog.service.UserService;
 import com.mask.blog.util.ConstraintViolationExceptionHandler;
 import com.mask.blog.vo.Response;
@@ -36,6 +38,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private AuthorityService authorityService;
 
 	/**
 	 * 查询所用用户
@@ -76,7 +81,12 @@ public class UserController {
 	 * @return
 	 */
 	@PostMapping
-	public ResponseEntity<Response> create(User user) {
+	public ResponseEntity<Response> create(User user, Long authorityId) {
+		
+		List<Authority> authorities = new ArrayList<>();
+		authorities.add(authorityService.getAuthorityById(authorityId));
+		user.setAuthorities(authorities);
+		
 		try {
 			userService.saveOrUpdateUser(user);
 		}  catch (ConstraintViolationException e)  {

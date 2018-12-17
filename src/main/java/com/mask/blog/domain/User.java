@@ -1,18 +1,33 @@
 package com.mask.blog.domain;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
-public class User {
+public class User implements UserDetails, Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)	//自增策略
 	private Long id;	//实体唯一标识
@@ -41,6 +56,11 @@ public class User {
 	
 	@Column(length = 200)
 	private String avatar; // 头像图片地址
+	
+	@ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
+	@JoinTable(name = "user_authority", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
+	private List<Authority> authorities;
 	
 	protected User() {
 	}
@@ -99,5 +119,39 @@ public class User {
 	public String toString() {
 		return String.format("User[id=%d, username='%s', name='%s', email='%s', password='%s']", id, username, name, email,
 				password);
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		//需将List<Authority> 转成List<SimpleGrantedAuthority>，否则前端拿不到角色列表名称
+		List<SimpleGrantedAuthority> simpleGrantedAuthorities = new ArrayList<>();
+		for(GrantedAuthority authority:this.authorities) {
+			simpleGrantedAuthorities.add(new SimpleGrantedAuthority(authority.getAuthority()));
+		}
+		return simpleGrantedAuthorities;
+	}
+	
+	public void setAuthorities(List<Authority> authorities) {
+		this.authorities = authorities;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return true;
 	}
 }

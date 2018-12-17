@@ -5,6 +5,11 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+<!-- CSRF -->
+<meta name="_csrf" th:content="${_csrf.token}"/>
+<!-- default header name is X-CSRF-TOKEN -->
+<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
 <!-- Tether core CSS -->
 <link href="../../css/tether.min.css" th:href="@{/css/tether.min.css}"
 	rel="stylesheet">
@@ -80,7 +85,7 @@
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> Mask </a>
+					aria-expanded="false"><span>Mask</span></a>
 					<div class="dropdown-menu"   style="min-width:100px;" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="#">我的主页</a> 
 						<a class="dropdown-item" href="#">个人设置</a>
