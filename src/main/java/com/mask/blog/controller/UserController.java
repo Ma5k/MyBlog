@@ -90,6 +90,7 @@ public class UserController {
 		try {
 			userService.saveOrUpdateUser(user);
 		}  catch (ConstraintViolationException e)  {
+			System.out.println(ConstraintViolationExceptionHandler.getMessage(e));
 			return ResponseEntity.ok().body(new Response(false, ConstraintViolationExceptionHandler.getMessage(e)));
 		}
 		

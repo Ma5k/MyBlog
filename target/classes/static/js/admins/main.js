@@ -1,4 +1,7 @@
-//使用严格模式
+/**
+ * Bolg main JS.
+ * Created by waylau.com on 2017/3/9.
+ */
 "use strict";
 //# sourceURL=main.js
 
@@ -27,6 +30,6 @@ $(function() {
 	});
 	
 	
-	// 选中菜单第一项，第一次加载时触发第一个菜单项的点击事件
+	// 选中菜单第一项
 	 $(".blog-menu .list-group-item:first").trigger("click");
 });

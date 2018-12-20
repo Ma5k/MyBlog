@@ -25,19 +25,19 @@
 					<th data-field="username">账号</th>
 					<th data-field="name">姓名</th>
 					<th data-field="email">邮箱</th>
- 					<th data-field="authorities">角色</th>
- 				<th data-field="operation">操作</th>
+					<th data-field="authorities">角色</th>
+					<th data-field="operation">操作</th>
 
 				</tr>
 			</thead>
 			<tbody>
 
 				<tr th:each="user : ${userModel.userList}">
-					<td th:text="${user.id}">mask</td>
-					<td th:text="${user.username}">mask</td>
-					<td th:text="${user.name}">mask</td>
-					<td th:text="${user.email}">mask</td>
- 					<td th:text="${user.authorities}">mask</td>
+					<td th:text="${user.id}">1</td>
+					<td th:text="${user.username}">1</td>
+					<td th:text="${user.name}">waylau</td>
+					<td th:text="${user.email}">waylau</td>
+					<td th:text="${user.authorities}">waylau</td>
 					<td>
 						<div>
 							<a class="blog-edit-user" data-toggle="modal"
@@ -55,7 +55,7 @@
 			</tbody>
 
 		</table>
-		<div th:replace="/fragments/page :: page">...</div>
+		<div th:replace="~{fragments/page :: page}">...</div>
 
 	</div>
 </div>
@@ -76,7 +76,7 @@
 			<div class="modal-body" id="userFormContainer"></div>
 			<div class="modal-footer">
 				<button class="btn btn-primary" data-dismiss="modal" id="submitEdit">提交</button>
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 			</div>
 		</div>
 	</div>
