@@ -31,6 +31,11 @@ import com.mask.blog.service.UserService;
 import com.mask.blog.util.ConstraintViolationExceptionHandler;
 import com.mask.blog.vo.Response;
 
+/**
+ * 用户控制器
+ * @author Mask
+ *
+ */
 @RestController
 @RequestMapping("/users")
 @PreAuthorize("hasAuthority('ROLE_ADMIN')")  // 指定角色权限才能操作方法

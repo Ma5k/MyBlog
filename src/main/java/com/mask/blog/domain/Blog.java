@@ -20,7 +20,11 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.github.rjeschke.txtmark.Processor;
-
+/**
+ * blog实体类
+ * @author Mask
+ *
+ */
 @Entity // 实体
 public class Blog implements Serializable {
 	private static final long serialVersionUID = 1L;

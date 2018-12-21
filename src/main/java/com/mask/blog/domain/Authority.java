@@ -8,6 +8,11 @@ import javax.persistence.Id;
 
 import org.springframework.security.core.GrantedAuthority;
 
+/**
+ * 权限实体类
+ * @author Mask
+ *
+ */
 @Entity
 public class Authority implements GrantedAuthority{
 

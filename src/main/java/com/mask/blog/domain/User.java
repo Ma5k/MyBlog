@@ -25,6 +25,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/**
+ * User实体类
+ * @author Mask
+ *
+ */
 @Entity
 public class User implements UserDetails, Serializable {
 	
@@ -93,6 +98,7 @@ public class User implements UserDetails, Serializable {
 		this.email = email;
 	}
 	
+	@Override
 	public String getUsername() {
 		return username;
 	}
@@ -101,6 +107,7 @@ public class User implements UserDetails, Serializable {
 		this.username = username;
 	}
 
+	@Override
 	public String getPassword() {
 		return password;
 	}

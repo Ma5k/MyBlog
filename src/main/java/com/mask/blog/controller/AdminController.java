@@ -1,25 +1,27 @@
 package com.mask.blog.controller;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-/**
- * 管理员控制器
- * @author Mask
- *
- */
-import org.springframework.web.servlet.ModelAndView;
 
 import com.mask.blog.vo.Menu;
+
+/**
+ * 管理员控制器
+ * 
+ * @author Mask
+ */
 @Controller
 @RequestMapping("/admins")
 public class AdminController {
 	/**
 	 * 获取后台管理主页面
+	 * 
 	 * @return
 	 */
 	@GetMapping
