@@ -6,6 +6,11 @@ import org.springframework.data.domain.Pageable;
 import com.mask.blog.domain.Blog;
 import com.mask.blog.domain.User;
 
+/**
+ * blog服务接口
+ * @author Mask
+ *
+ */
 public interface BlogService {
 	/**
 	 * 保存Blog

@@ -6,6 +6,11 @@ import org.springframework.stereotype.Service;
 import com.mask.blog.domain.Authority;
 import com.mask.blog.repository.AuthorityRepository;
 
+/**
+ * 权限服务实现
+ * @author Mask
+ *
+ */
 @Service
 public class AuthorityServiceImpl implements AuthorityService {
 

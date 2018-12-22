@@ -15,42 +15,35 @@ import com.mask.blog.domain.Comment;
 import com.mask.blog.domain.User;
 import com.mask.blog.repository.BlogRepository;
 
+/**
+ * blog服务实现
+ * @author Mask
+ *
+ */
 @Service
 public class BlogServiceImpl implements BlogService {
 
 	@Autowired
 	private BlogRepository blogRepository;
 
-	/* (non-Javadoc)
-	 * @see com.waylau.spring.boot.blog.service.BlogService#saveBlog(com.waylau.spring.boot.blog.domain.Blog)
-	 */
 	@Transactional
 	@Override
 	public Blog saveBlog(Blog blog) {
 		return blogRepository.save(blog);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.waylau.spring.boot.blog.service.BlogService#removeBlog(java.lang.Long)
-	 */
 	@Transactional
 	@Override
 	public void removeBlog(Long id) {
 		blogRepository.delete(id);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.waylau.spring.boot.blog.service.BlogService#updateBlog(com.waylau.spring.boot.blog.domain.Blog)
-	 */
 	@Transactional
 	@Override
 	public Blog updateBlog(Blog blog) {
 		return blogRepository.save(blog);
 	}
 
-	/* (non-Javadoc)
-	 * @see com.waylau.spring.boot.blog.service.BlogService#getBlogById(java.lang.Long)
-	 */
 	@Override
 	public Blog getBlogById(Long id) {
 		return blogRepository.findOne(id);

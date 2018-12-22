@@ -237,6 +237,7 @@ public class UserspaceController {
 	 * @return
 	 */
 	@GetMapping("/{username}/blogs/edit")
+	@PreAuthorize("authentication.name.equals(#username)") 
 	public ModelAndView createBlog(@PathVariable("username") String username, Model model) {
 		model.addAttribute("blog", new Blog(null, null, null));
 		model.addAttribute("fileServerUrl", fileServerUrl);	//文件服务器地址返回给客户端
@@ -249,6 +250,7 @@ public class UserspaceController {
 	 * @return
 	 */
 	@GetMapping("/{username}/blogs/edit/{id}")
+	@PreAuthorize("authentication.name.equals(#username)") 
 	public ModelAndView editBlog(@PathVariable("username") String username,@PathVariable("id") Long id, Model model) {
 		model.addAttribute("blog", blogService.getBlogById(id));
 		model.addAttribute("fileServerUrl", fileServerUrl);

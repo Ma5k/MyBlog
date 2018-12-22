@@ -5,6 +5,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.mask.blog.domain.User;
 
+/**
+ * 用户仓库
+ * @author Mask
+ *
+ */
 public interface UserRepository extends JpaRepository<User, Long> {
 	/**
 	 * 根据用户姓名分页查询用户列表

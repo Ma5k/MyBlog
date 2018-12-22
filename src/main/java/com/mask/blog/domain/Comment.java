@@ -16,7 +16,11 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-
+/**
+ * 评论实体类
+ * @author Mask
+ *
+ */
 @Entity // 实体
 public class Comment implements Serializable {
 	private static final long serialVersionUID = 1L;

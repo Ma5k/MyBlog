@@ -7,6 +7,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.mask.blog.domain.Blog;
 import com.mask.blog.domain.User;
 
+/**
+ * blog仓库
+ * @author Mask
+ *
+ */
 public interface BlogRepository extends JpaRepository<Blog, Long>{
 	/**
 	 * 根据用户名分页查询用户列表

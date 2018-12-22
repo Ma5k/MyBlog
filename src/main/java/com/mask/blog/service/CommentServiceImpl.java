@@ -8,7 +8,11 @@ import org.springframework.stereotype.Service;
 import com.mask.blog.domain.Comment;
 import com.mask.blog.repository.CommentRepository;
 
-
+/**
+ * 评论服务实现
+ * @author Mask
+ *
+ */
 @Service
 public class CommentServiceImpl implements CommentService {
 

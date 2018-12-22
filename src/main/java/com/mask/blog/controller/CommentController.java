@@ -26,6 +26,11 @@ import com.mask.blog.service.CommentService;
 import com.mask.blog.util.ConstraintViolationExceptionHandler;
 import com.mask.blog.vo.Response;
 
+/**
+ * 评论控制器
+ * @author Mask
+ *
+ */
 @Controller
 @RequestMapping("/comments")
 public class CommentController {
