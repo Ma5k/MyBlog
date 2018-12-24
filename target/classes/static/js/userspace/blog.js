@@ -1,3 +1,9 @@
+/*!
+ * blog.html 页面脚本.
+ * 
+ * @since: 1.0.0 2017-03-26
+ * @author Way Lau <https://waylau.com>
+ */
 "use strict";
 //# sourceURL=blog.js
 
@@ -14,7 +20,7 @@ $(function() {
 		
 		
 		$.ajax({ 
-			 url: $(this).attr("blogUrl") , 
+			 url: blogUrl, 
 			 type: 'DELETE', 
 			 beforeSend: function(request) {
                  request.setRequestHeader(csrfHeader, csrfToken); // 添加  CSRF Token 
@@ -85,6 +91,7 @@ $(function() {
 		 });
 	});
 	
+	// 删除评论
 	$(".blog-content-container").on("click",".blog-delete-comment", function () { 
 		// 获取 CSRF Token 
 		var csrfToken = $("meta[name='_csrf']").attr("content");
@@ -110,6 +117,7 @@ $(function() {
 		 });
 	});
 	
+	
 	// 提交点赞
 	$(".blog-content-container").on("click","#submitVote", function () { 
 		// 获取 CSRF Token 
@@ -127,7 +135,7 @@ $(function() {
 				 if (data.success) {
 					 toastr.info(data.message);
 						// 成功后，重定向
-					 window.location = data.body;
+					 window.location = blogUrl;
 				 } else {
 					 toastr.error(data.message);
 				 }
@@ -138,7 +146,7 @@ $(function() {
 		 });
 	});
 	
-	// 取消点赞
+	// 提交点赞
 	$(".blog-content-container").on("click","#cancelVote", function () { 
 		// 获取 CSRF Token 
 		var csrfToken = $("meta[name='_csrf']").attr("content");
@@ -154,7 +162,7 @@ $(function() {
 				 if (data.success) {
 					 toastr.info(data.message);
 					// 成功后，重定向
-					 window.location = data.body;
+					 window.location = blogUrl;
 				 } else {
 					 toastr.error(data.message);
 				 }

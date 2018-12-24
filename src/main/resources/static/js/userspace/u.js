@@ -11,7 +11,6 @@
 $(function() {
 	 
 	var _pageSize; // 存储用于搜索
-	var catalogId;
 	
 	// 根据用户名、页面索引、页面大小获取用户列表
 	function getBlogsByName(pageIndex, pageSize) {
@@ -22,10 +21,16 @@ $(function() {
 				 "async":true, 
 				 "pageIndex":pageIndex,
 				 "pageSize":pageSize,
+				 "catalog":catalogId,
 				 "keyword":$("#keyword").val()
 			 },
 			 success: function(data){
 				 $("#mainContainer").html(data);
+				 
+				 // 如果是分类查询，则取消最新、最热选中样式
+				 if (catalogId) {
+					$(".nav-item .nav-link").removeClass("active");
+				 }
 		     },
 		     error : function() {
 		    	 toastr.error("error!");
@@ -67,10 +72,11 @@ $(function() {
 		 // 清空搜索框内容
 		 $("#keyword").val('');
 	});
- 
-
+	
+	
 	// 获取分类列表
 	function getCatalogs(username) {
+		// 获取 CSRF Token 
  
 		$.ajax({ 
 			 url: '/catalogs', 
@@ -177,4 +183,9 @@ $(function() {
 		getBlogsByName(0, _pageSize);
 	});
 	
+	
+	
+	
+	getCatalogs(username);
+ 
 });
