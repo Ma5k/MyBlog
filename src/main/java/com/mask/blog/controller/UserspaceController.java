@@ -305,28 +305,41 @@ public class UserspaceController {
 
 	/**
 	 * 保存博客
-	 * 
 	 * @param username
 	 * @param blog
 	 * @return
 	 */
 	@PostMapping("/{username}/blogs/edit")
-	@PreAuthorize("authentication.name.equals(#username)")
+	@PreAuthorize("authentication.name.equals(#username)") 
 	public ResponseEntity<Response> saveBlog(@PathVariable("username") String username, @RequestBody Blog blog) {
-		User user = (User) userDetailsService.loadUserByUsername(username);
-		blog.setUser(user);
 		// 对 Catalog 进行空处理
 		if (blog.getCatalog().getId() == null) {
 			return ResponseEntity.ok().body(new Response(false,"未选择分类"));
 		}
 		try {
-			blogService.saveBlog(blog);
-		} catch (ConstraintViolationException e) {
+
+			// 判断是修改还是新增
+			
+			if (blog.getId()!=null) {
+				Blog orignalBlog = blogService.getBlogById(blog.getId());
+				orignalBlog.setTitle(blog.getTitle());
+				orignalBlog.setContent(blog.getContent());
+				orignalBlog.setSummary(blog.getSummary());
+				orignalBlog.setCatalog(blog.getCatalog());
+				orignalBlog.setTags(blog.getTags());
+				blogService.saveBlog(orignalBlog);
+	        } else {
+	    		User user = (User)userDetailsService.loadUserByUsername(username);
+	    		blog.setUser(user);
+				blogService.saveBlog(blog);
+	        }
+			
+		} catch (ConstraintViolationException e)  {
 			return ResponseEntity.ok().body(new Response(false, ConstraintViolationExceptionHandler.getMessage(e)));
 		} catch (Exception e) {
 			return ResponseEntity.ok().body(new Response(false, e.getMessage()));
 		}
-
+		
 		String redirectUrl = "/u/" + username + "/blogs/" + blog.getId();
 		return ResponseEntity.ok().body(new Response(true, "处理成功", redirectUrl));
 	}

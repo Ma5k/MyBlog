@@ -91,6 +91,9 @@ public class Blog implements Serializable {
 	@OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
 	@JoinColumn(name="catalog_id")
 	private Catalog catalog;
+	
+	@Column(name="tags", length = 100) 
+	private String tags;  // 标签
 
 	public Integer getVoteSize() {
 		return voteSize;
@@ -260,6 +263,14 @@ public class Blog implements Serializable {
 
 	public void setCatalog(Catalog catalog) {
 		this.catalog = catalog;
+	}
+
+	public String getTags() {
+		return tags;
+	}
+
+	public void setTags(String tags) {
+		this.tags = tags;
 	}
 	
 }
