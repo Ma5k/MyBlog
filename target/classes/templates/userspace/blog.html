@@ -28,7 +28,7 @@
                         </a>
                     </h2>
                     <div class="card-text">
-                        <a href="/u/waylau" th:href="'/u/' + ${blogModel.user.username}" class="card-link" th:text="${blogModel.user.username}" >waylau</a> <span th:text="${#dates.format(blogModel.createTime, 'yyyy-MM-dd HH:mm')}"></span> 
+                        <a href="/u/waylau" th:href="'/u/' + ${blogModel.user.username}" class="card-link" th:text="${blogModel.user.username}" >Mask</a> <span th:text="${#dates.format(blogModel.createTime, 'yyyy-MM-dd HH:mm')}"></span> 
                         	<i class="fa fa-eye" aria-hidden="true"><span th:text="${blogModel.readSize}"></span></i>
 		                    <i class="fa fa-heart-o" aria-hidden="true"><span th:text="${blogModel.voteSize}"></span></i> 
 		                    <i class="fa fa-comment-o" aria-hidden="true"><span th:text="${blogModel.commentSize}"></span></i>

@@ -44,7 +44,7 @@
 	<!-- 处理页数大于7 的情况 -->	
 	<ul class="pagination" data-th-if="${page.totalPages gt 7}" >
 	 	<!-- 总记录数 -->
- 		<li class="tbpage-total-elements disabled">共[[${page.totalElements}]]条</li>
+<!--  		<li class="tbpage-total-elements disabled"><span th:text="共+${page.totalElements}+条"></span></li> -->
  		
  		<!-- 页面大小 -->
 		<select class="custom-select tbpage-size" data-th-attr="pageIndex=${page.number}">

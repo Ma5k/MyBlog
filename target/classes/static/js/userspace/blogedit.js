@@ -28,11 +28,11 @@ $(function() {
     $('.form-control-chosen').chosen();
     
     
-/*    // 初始化标签
+    // 初始化标签
     $('.form-control-tag').tagsInput({
     	'defaultText':'输入标签'
  
-    });*/
+    });
  
  	$("#uploadImage").click(function() {
 		$.ajax({
