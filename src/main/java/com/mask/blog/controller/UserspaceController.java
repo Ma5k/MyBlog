@@ -110,7 +110,7 @@ public class UserspaceController {
 			originalUser.setEncodePassword(user.getPassword());
 		}
 
-		userService.saveOrUpdateUser(originalUser);
+		userService.saveUser(originalUser);
 		return "redirect:/u/" + username + "/profile";
 	}
 
@@ -143,7 +143,7 @@ public class UserspaceController {
 
 		User originalUser = userService.getUserById(user.getId());
 		originalUser.setAvatar(avatarUrl);
-		userService.saveOrUpdateUser(originalUser);
+		userService.saveUser(originalUser);
 
 		return ResponseEntity.ok().body(new Response(true, "处理成功", avatarUrl));
 	}
