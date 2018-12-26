@@ -135,7 +135,7 @@ $(function() {
 				 if (data.success) {
 					 toastr.info(data.message);
 						// 成功后，重定向
-					 window.location = blogUrl;
+					 window.location = data.body;
 				 } else {
 					 toastr.error(data.message);
 				 }

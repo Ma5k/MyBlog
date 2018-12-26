@@ -221,7 +221,7 @@ public class UserspaceController {
 				&& SecurityContextHolder.getContext().getAuthentication().isAuthenticated() && !SecurityContextHolder
 						.getContext().getAuthentication().getPrincipal().toString().equals("anonymousUser")) {
 			principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-			if (principal != null && username.equals(principal.getUsername())) {
+			if (principal != null && blogService.getBlogById(id).getUser().getUsername().equals(principal.getUsername())) {
 				isBlogOwner = true;
 			}
 		}
