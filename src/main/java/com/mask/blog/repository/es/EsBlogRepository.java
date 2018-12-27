@@ -7,7 +7,7 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 import com.mask.blog.domain.es.EsBlog;
 
 public interface EsBlogRepository extends ElasticsearchRepository<EsBlog, String> {
- 
+	 
 	/**
 	 * 模糊查询(去重)
 	 * @param title

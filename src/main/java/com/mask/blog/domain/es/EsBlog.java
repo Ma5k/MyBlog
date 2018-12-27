@@ -3,14 +3,15 @@ package com.mask.blog.domain.es;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldIndex;
 
 import com.mask.blog.domain.Blog;
+
 
 @Document(indexName = "blog", type = "blog")
 @XmlRootElement // MediaType 转为 XML

@@ -31,7 +31,6 @@ import com.mask.blog.domain.es.EsBlog;
 import com.mask.blog.repository.es.EsBlogRepository;
 import com.mask.blog.vo.TagVO;
 
-
 @Service
 public class EsBlogServiceImpl implements EsBlogService {
 	@Autowired
@@ -188,4 +187,3 @@ public class EsBlogServiceImpl implements EsBlogService {
 		return list;
 	}
 }
-
