@@ -21,7 +21,6 @@ $(function() {
 				 "async":true, 
 				 "pageIndex":pageIndex,
 				 "pageSize":pageSize,
-				 "catalog":catalogId,
 				 "keyword":$("#keyword").val()
 			 },
 			 success: function(data){
