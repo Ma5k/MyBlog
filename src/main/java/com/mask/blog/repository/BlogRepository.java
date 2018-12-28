@@ -13,6 +13,7 @@ import com.mask.blog.domain.User;
  * @author Mask
  *
  */
+
 public interface BlogRepository extends JpaRepository<Blog, Long>{
 	/**
 	 * 根据用户名分页查询用户列表（最新）
@@ -44,7 +45,7 @@ public interface BlogRepository extends JpaRepository<Blog, Long>{
 	 * @param pageable
 	 * @return
 	 */
-	//Page<Blog> findByTitleLikeAndUserOrTagsLikeAndUserOrderByCreateTimeDesc(String title,User user,String tags,User user2,Pageable pageable);
+	Page<Blog> findByTitleLikeAndUserOrTagsLikeAndUserOrderByCreateTimeDesc(String title,User user,String tags,User user2,Pageable pageable);
 	/**
 	 * 根据用户名分页查询用户列表
 	 * @param user

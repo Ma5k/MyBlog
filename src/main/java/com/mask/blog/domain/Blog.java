@@ -30,7 +30,6 @@ import com.github.rjeschke.txtmark.Processor;
  * @author Mask
  *
  */
-
 @Entity // 实体
 @Document(indexName = "blog", type = "blog")
 public class Blog implements Serializable {
